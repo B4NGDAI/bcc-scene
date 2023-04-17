@@ -365,8 +365,8 @@ RegisterNetEvent('bcc_scene:retrieveCharData', function(license, cid, job, group
     cid = cid
 end)
 
-RegisterNetEvent("vorp:SelectedCharacter")
-AddEventHandler("vorp:SelectedCharacter", function()
+RegisterNetEvent("RSGCore:Client:OnPlayerLoaded")
+AddEventHandler("RSGCore:Client:OnPlayerLoaded", function()
     Wait(10000)
     PlayerData()
 end)
