@@ -9,14 +9,14 @@ ORIGINAL SOURCE [BCC-SCENES](https://github.com/BryceCanyonCounty/bcc-scene)
 Join the [RSG Community Discord](https://discord.gg/fPQX5WDgQZ)
 
 ## Features
-Freely Add Text to a scene
-Remove Text in a scene
-Update Text in a scene
-Hotkeys and/or commands
-Easily configurateble settings
-Json file storage OR SQL Database storage
-Custom UI
-Job/Admin Lock
+1. Freely Add Text to a scene
+2. Remove Text in a scene
+3. Update Text in a scene
+4. Hotkeys and/or commands
+5. Easily configurateble settings
+6. Json file storage OR SQL Database storage
+7. Custom UI
+8. Job/Admin Lock
 
 ## Installation
 1. Download this repo/codebase
