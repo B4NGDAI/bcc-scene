@@ -16,6 +16,7 @@ Join the [RSG Community Discord](https://discord.gg/fPQX5WDgQZ)
 5. Easily configurateble settings
 6. Json file storage OR SQL Database storage
 7. Custom UI
+8. Job/Admin Lock
 
 ## Installation
 1. Download this repo/codebase
