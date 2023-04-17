@@ -1,8 +1,12 @@
 # BCC - Scene
 
-> A RedM scene text free placement system for [Vorp Core](http://docs.vorpcore.com:3000/)
+CONVERT TO RSG CORE FROM VORP
 
-Join the [VORP Community Discord](https://discord.gg/23MPbQ6)
+ORIGINAL SOURCE [BCC-SCENES](https://github.com/BryceCanyonCounty/bcc-scene)
+
+> A RedM scene text free placement system for [RSG-CORE](https://rexshack-gaming.gitbook.io/rsg/)
+
+Join the [RSG Community Discord](https://discord.gg/fPQX5WDgQZ)
 
 ## Features
 1. Freely Add Text to a scene
@@ -44,4 +48,4 @@ All configurations available in `/config.lua`
 - Heavily inspired by a similar old FiveM script [nh-scenes](https://github.com/nerohiro/nh-scenes). 
 
  ## Dependency
- - Vorp Core
+ - rsg-core
