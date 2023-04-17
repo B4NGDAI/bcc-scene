@@ -1,5 +1,5 @@
 Config = {}
-
+Config.Debug = false
 Config.ViewDistance = 5.0
 Config.EditDistance = 2.0
 
@@ -8,16 +8,20 @@ Config.EditDistance = 2.0
 Config.RestartDelete = true
 Config.UseDataBase = true
 
-Config.AllowAnyoneToDelete = true
+-- USE ONLY ONE OF THE BELOW --
+Config.AllowAnyoneToEdit = true -- True or False
+Config.AdminLock = false -- Use 'false' for no admin lock or IE group names. {'admin', 'god'}
+Config.JobLock = false --{'valentine', 'rhodes', 'saintdenis', 'strawberry', 'blackwater'} --{'police', 'doctor'} -- Use 'false' for no job lock or IE. {'police'}
+-------------------------------
 
 Config.HotKeysEnabled = true
 Config.HotKeys = {
-    Scene = 0xA5BDCD3C,
-    Place = 0x430593AA
+    Scene = 0x26E9DC00,
+    Place = 0x8CC9CD42
 }
 
 Config.Prompts = {
-    Edit = {[1] = "Edit Scene", [2] = 0x760A9C6F},
+    Edit = {[1] = "Edit Scene", [2] = 0x4CC0E2FE},
     Place = {
         title = 'Place Scene'
     }
@@ -49,8 +53,6 @@ Config.Defaults = {
 }
 
 Config.TextAsterisk = true
-
-
 
 -- DO NOT TOUCH BELOW
 Config.Fonts = {0,1,5,6, 9, 11, 12, 15, 18, 19, 20, 22, 24, 25, 28, 29}

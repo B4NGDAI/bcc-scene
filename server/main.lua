@@ -13,7 +13,7 @@ function dump(o)
     end
  end
 
-Citizen.CreateThread(function()
+ Citizen.CreateThread(function()
     if Config.RestartDelete == true and Config.UseDataBase == false then
         local Scenes_a = {}
         SaveResourceFile(GetCurrentResourceName(), "./scenes.json", json.encode(Scenes_a))
@@ -53,8 +53,7 @@ local function refreshClientScenes()
     end
 end
 
-RegisterServerEvent("bcc_scene:add")
-AddEventHandler("bcc_scene:add", function(text,coords)
+RegisterServerEvent("bcc_scene:add", function(text,coords)
 	local _source = source
     local _text = tostring(text)
 	local User = RSGCore.Functions.GetPlayer(_source)
@@ -79,8 +78,7 @@ AddEventHandler("bcc_scene:add", function(text,coords)
     end
 end)
 
-RegisterServerEvent("bcc_scene:getscenes")
-AddEventHandler("bcc_scene:getscenes", function(text)
+RegisterServerEvent("bcc_scene:getscenes", function(text)
 	local _source = source
     if Config.UseDataBase == true then
         refreshClientScenes()
@@ -91,8 +89,7 @@ AddEventHandler("bcc_scene:getscenes", function(text)
     end
 end)
 
-RegisterServerEvent("bcc_scene:delete")
-AddEventHandler("bcc_scene:delete", function(nr)
+RegisterServerEvent("bcc_scene:delete", function(nr)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -125,21 +122,20 @@ AddEventHandler("bcc_scene:delete", function(nr)
             TriggerClientEvent("bcc_scene:sendscenes", -1, datas)
             return
         else
-            TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
+            TriggerClientEvent('RSGCore:Notify', _source, Config.Texts.NoAuth, 'error')
+            --TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
         end
 
     end
 end)
 
-RegisterServerEvent("bcc_scene:getCharData")
-AddEventHandler("bcc_scene:getCharData", function()
+RegisterServerEvent("bcc_scene:getCharData", function()
     local User = RSGCore.Functions.GetPlayer(source)
     local Character = User.PlayerData
-    TriggerClientEvent("bcc_scene:retrieveCharData", source, RSGCore.Functions.GetIdentifier(source, 'steam'), Character.cid)
+    TriggerClientEvent("bcc_scene:retrieveCharData", source, RSGCore.Functions.GetIdentifier(source, 'steam'), Character.cid, Character.job, Character.group)
 end)
 
-RegisterServerEvent("bcc_scene:edit")
-AddEventHandler("bcc_scene:edit", function(nr)
+RegisterServerEvent("bcc_scene:edit", function(nr)
 	local _source = source
 
     if Config.UseDataBase == false then
@@ -151,13 +147,13 @@ AddEventHandler("bcc_scene:edit", function(nr)
             TriggerClientEvent("bcc_scene:client_edit", _source, nr)
             return
         else
-            TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
+            TriggerClientEvent('RSGCore:Notify', _source, Config.Texts.NoAuth, 'error')
+            --TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
         end
     end
 end)
 
-RegisterServerEvent("bcc_scene:color")
-AddEventHandler("bcc_scene:color", function(nr, color)
+RegisterServerEvent("bcc_scene:color", function(nr, color)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -188,13 +184,13 @@ AddEventHandler("bcc_scene:color", function(nr, color)
             TriggerClientEvent("bcc_scene:sendscenes", -1, datas)
             return
         else
-            TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
+            TriggerClientEvent('RSGCore:Notify', _source, Config.Texts.NoAuth, 'error')
+            --TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
         end
     end
 end)
 
-RegisterServerEvent("bcc_scene:background")
-AddEventHandler("bcc_scene:background", function(nr, color)
+RegisterServerEvent("bcc_scene:background", function(nr, color)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -225,13 +221,13 @@ AddEventHandler("bcc_scene:background", function(nr, color)
             TriggerClientEvent("bcc_scene:sendscenes", -1, datas)
             return
         else
-            TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
+            TriggerClientEvent('RSGCore:Notify', _source, Config.Texts.NoAuth, 'error')
+            --TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
         end
     end
 end)
 
-RegisterServerEvent("bcc_scene:font")
-AddEventHandler("bcc_scene:font", function(nr, font)
+RegisterServerEvent("bcc_scene:font", function(nr, font)
 	local _source = source
 
     if Config.UseDataBase == true then
@@ -263,13 +259,13 @@ AddEventHandler("bcc_scene:font", function(nr, font)
             TriggerClientEvent("bcc_scene:sendscenes", -1, datas)
             return
         else
-            TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
+            TriggerClientEvent('RSGCore:Notify', _source, Config.Texts.NoAuth, 'error')
+            --TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
         end
     end
 end)
 
-RegisterServerEvent("bcc_scene:edited")
-AddEventHandler("bcc_scene:edited", function(text,nr)
+RegisterServerEvent("bcc_scene:edited", function(text,nr)
 	local _source = source
     local _text = tostring(text)
 
@@ -293,8 +289,7 @@ AddEventHandler("bcc_scene:edited", function(text,nr)
     end
 end)
 
-RegisterServerEvent("bcc_scene:scale")
-AddEventHandler("bcc_scene:scale", function(nr, scale)
+RegisterServerEvent("bcc_scene:scale", function(nr, scale)
     local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -325,13 +320,13 @@ AddEventHandler("bcc_scene:scale", function(nr, scale)
             TriggerClientEvent("bcc_scene:sendscenes", -1, datas)
             return
         else
-            TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
+            TriggerClientEvent('RSGCore:Notify', _source, Config.Texts.NoAuth, 'error')
+            --TriggerClientEvent("ip-core:TipBottom", _source, Config.Texts.NoAuth, 2000)
         end
     end
 end)
 
-RegisterServerEvent("bcc_scene:moveup")
-AddEventHandler("bcc_scene:moveup", function(nr, coords, distance)
+RegisterServerEvent("bcc_scene:moveup", function(nr, coords, distance)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -360,8 +355,7 @@ AddEventHandler("bcc_scene:moveup", function(nr, coords, distance)
     end
 end)
 
-RegisterServerEvent("bcc_scene:movedown")
-AddEventHandler("bcc_scene:movedown", function(nr, coords, distance)
+RegisterServerEvent("bcc_scene:movedown", function(nr, coords, distance)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -390,8 +384,7 @@ AddEventHandler("bcc_scene:movedown", function(nr, coords, distance)
     end
 end)
 
-RegisterServerEvent("bcc_scene:moveleft")
-AddEventHandler("bcc_scene:moveleft", function(nr, coords, distance)
+RegisterServerEvent("bcc_scene:moveleft", function(nr, coords, distance)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -420,8 +413,7 @@ AddEventHandler("bcc_scene:moveleft", function(nr, coords, distance)
     end
 end)
 
-RegisterServerEvent("bcc_scene:moveright")
-AddEventHandler("bcc_scene:moveright", function(nr, coords, distance)
+RegisterServerEvent("bcc_scene:moveright", function(nr, coords, distance)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -450,8 +442,7 @@ AddEventHandler("bcc_scene:moveright", function(nr, coords, distance)
     end
 end)
 
-RegisterServerEvent("bcc_scene:moveforward")
-AddEventHandler("bcc_scene:moveforward", function(nr, coords, distance)
+RegisterServerEvent("bcc_scene:moveforward", function(nr, coords, distance)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
@@ -481,8 +472,7 @@ AddEventHandler("bcc_scene:moveforward", function(nr, coords, distance)
     end
 end)
 
-RegisterServerEvent("bcc_scene:movebackwards")
-AddEventHandler("bcc_scene:movebackwards", function(nr, coords, distance)
+RegisterServerEvent("bcc_scene:movebackwards", function(nr, coords, distance)
 	local _source = source
     if Config.UseDataBase == true then
         local User = RSGCore.Functions.GetPlayer(_source)
