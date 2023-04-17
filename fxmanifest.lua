@@ -26,4 +26,4 @@ ui_page 'ui/index.html'
 
 version '2.1.1'
 
-dependency 'ip-core'
+dependency 'rsg-core'
