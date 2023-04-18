@@ -1,3 +1,4 @@
+local RSGCore = exports['rsg-core']:GetCoreObject()
 local EditGroup = GetRandomIntInRange(0, 0xffffff)
 local PlacePrompt
 local EditPrompt
